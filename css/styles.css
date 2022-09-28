@@ -4,6 +4,7 @@
 :root {
     --primary-bg: #F5F5FA;
     --secondary-bg: #3E5FCE;
+    --header-bg: #fff;
     --sidebar-primary: #8AA9E6;
     --sidebar-secondary: #C5CCD6;
     --sidebar-orange: #D5AAA0;
@@ -39,7 +40,7 @@ body {
     flex-basis: 20%;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
     background-color: var(--secondary-bg);
     padding: 1.5rem 0;
     border-top-left-radius: 50px;
@@ -47,18 +48,18 @@ body {
 }
 
 .sub-menu {
-    margin-bottom: 2rem;    
+    margin-bottom: 0rem;    
 }
 
 .sub-menu .sub-menu-title {
     display: flex;
     font-family: var(--font-family-sec);
-    margin: 0 2rem 1rem 2rem;
+    margin: 0 2rem 0 2rem;
 }
 
 .sub-menu .sub-menu-title p {
     color: var(--sidebar-primary);
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 300;
 }
 
@@ -73,7 +74,7 @@ body {
 
 .sub-menu li {
     color: var(--sidebar-secondary);
-    margin: 0 0rem .3rem 0rem;
+    margin: 0 0rem 0rem 0rem;
     padding: .5rem 2rem;
 }
 .sub-menu li:hover {
@@ -83,37 +84,45 @@ body {
 }
 .sub-menu li i{
     margin-right: .5rem;
+    font-size: 1rem;
 }
 .sub-menu li  a {
     display: flex;
     align-items: center;
-    gap: .8rem;
-    font-size: 1rem;
+    gap: .5rem;
+    font-size: .8rem;
     color: var(--sidebar-secondary);
 }
-.sub-menu li .ball {
-    width: 30px;
-    height: 30px;
+.ball {
+    width: 20px;
+    height: 20px;
     display: flex;
     border-radius: 100%;
     background-color: #FF9AA2;
     align-items: center;
     justify-content: center;
+    font-size: .8rem;
 }
-.sub-menu li .ball:nth-of-type(2) {
+.sub-menu li .ball.orange {
     background-color: #FC853F;
 }
-.sub-menu li .ball:nth-of-type(3) {
+.sub-menu li .ball.blue {
     background-color: #1CB2E3;
 }
 .sub-menu li .ball-out {
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     display: flex;
     border-radius: 100%;
     background-color: transparent;
     align-items: center;
     justify-content: center;
+    border: 4px solid #FC853F;
+}
+.sub-menu li .ball-out.green {
+    border: 4px solid #00E05F;
+}
+.sub-menu li .ball-out.red {
     border: 4px solid red;
 }
 
@@ -125,12 +134,76 @@ body {
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
+    background-color: var(--header-bg);
+    align-items: center;
 }
 .main-header .user-info {
     display: flex;
     gap: .5rem;
 }
 .main-header .user-info .user-photo {
+    width: 36px;
+    height: 36px;
+    
+}
+.main-header .user-info .user-photo img {
+    width: 100%;
+    border-radius: 50%;
+}
+.main-header .user-info .user-name h1{
+    font-size: .8rem;
+    font-weight: 400;
+}
+.main-header .user-info .user-name span{
+    font-size: .7rem;
+    font-weight: 400;
+    color: var(--tertiary-color);
+}
+.main-header .user-info .user-name .user-other {
+    display: flex;
+    align-items: center;
+}
+
+.main-header .user-info .user-name .ball {
+    height: 3px;
+    width: 3px;
+    margin-right: .1rem;
+    background-color: var(--secondary-color);
+}
+.main-header .user-info .user-name > div {
+    display: flex;
+    gap: .5rem;
+}
+
+.search {
+    padding: .5rem 1rem;
+    background-color: transparent;
+    border: 2px solid var(--primary-bg);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap:.5rem;
+    flex-basis: 40%;
+}
+.search span {
+    color: var(--secondary-color);
+}
+.search input {
+    outline: none;
+    border: none;
+    color: var(--secondary-color);
+}
+.search input::placeholder {
+    color: var(--secondary-color);
+}
+
+.notifications {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.notifications .ball {
     width: 30px;
     height: 30px;
+    color: #fff;
 }
