@@ -13,6 +13,7 @@
     --tertiary-color: #5177F4;
     --font-family:  'Roboto', sans-serif;
     --font-family-sec: 'Lato', sans-serif;
+    --btn-primary :#9CB1F7;
 }
 
 *, ::before, ::after {
@@ -93,6 +94,27 @@ body {
     font-size: .8rem;
     color: var(--sidebar-secondary);
 }
+
+.btn {
+    display: inline-block;
+    padding: .8rem 1.5rem;
+    color: var(--btn-primary);
+    background-color: #fff;
+    border-radius: 500px;
+    border: none;
+    font-size: .8rem;
+    font-weight: 600;
+    box-shadow: 0px 0px 12px -7px rgba(0,0,0,0.75);
+    cursor: pointer;
+}
+.btn:hover {
+    opacity: .8;
+}
+.btn.blue {
+    background-color: var(--btn-primary);
+    color: #fff;
+}
+
 .ball {
     width: 20px;
     height: 20px;
@@ -175,15 +197,17 @@ body {
     gap: .5rem;
 }
 
+.main-headr .search {
+    flex-basis: 40%;
+}
 .search {
     padding: .5rem 1rem;
     background-color: transparent;
-    border: 2px solid var(--primary-bg);
+    border: 1px solid var(--secondary-color);
     border-radius: 5px;
     display: flex;
     align-items: center;
     gap:.5rem;
-    flex-basis: 40%;
 }
 .search span {
     color: var(--secondary-color);
@@ -192,10 +216,24 @@ body {
     outline: none;
     border: none;
     color: var(--secondary-color);
+    width: 100%;
+    background-color: transparent;
 }
 .search input::placeholder {
     color: var(--secondary-color);
 }
+
+select {
+    padding: .5rem 1rem;
+    background-color: transparent;
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap:.5rem;
+    color: var(--secondary-color);
+}
+
 
 .notifications {
     display: flex;
@@ -206,4 +244,60 @@ body {
     width: 30px;
     height: 30px;
     color: #fff;
+}
+
+.main-container {
+    width: calc(100% - 2rem - 2rem);
+    margin: 0 auto;
+}
+.task-bar {
+    padding: 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.task-bar h1{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.task-bar .task-actions {
+    display: flex;
+    gap:1rem
+}
+.task-bar .task-actions > div {
+    display: flex;
+    gap: .2rem;
+    align-items: center;
+}
+.task-bar .task-actions .material-icons {
+    color: var(--secondary-color);
+    font-size: 1rem;
+}
+.task-bar .task-actions span {
+    color: var(--secondary-color);
+    font-size: .9rem;
+}
+
+.task-filters {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    gap: .4rem;
+}
+.task-filters .search {
+    flex: 1;
+}
+.task-filters .select-module{
+    flex: .4;
+}
+.task-filters .sort {
+    display: flex;
+    gap: .2rem;
+}
+.task-filters .sort span {
+    align-self: center;
+    cursor: pointer;
+}
+.task-filters .sort span:hover {
+    color: #2B2F33;
 }
