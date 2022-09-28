@@ -401,6 +401,22 @@ select {
     border-radius: 10px;
     color: #FF9AA2;
 }
+.task .category.orange {
+    background-color: #FFF5F6;
+    color: #FF9AA2;
+}
+.task .category.green {
+    background-color: #bad1b7;
+    color: #60CB9B;
+}
+.task .category.purple {
+    background-color: #857380;
+    color: #5255AD;
+}
+.task .category.yellow {
+    background-color: #F7F083;
+    color: #F7DB6D;
+}
 .task .category span {
     font-size: 3rem;
 }
