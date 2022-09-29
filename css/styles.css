@@ -31,15 +31,43 @@ body {
     color: var(--primary-color);
 }
 
+
 .modal-create {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #000;
-    opacity: .9;
+    background-color: rgba(0,0,0,0.75);
     z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.create-form {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 2rem;
+}
+.create-form .modal-input {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    color: var(--secondary-color);
+}
+.create-form .modal-input input , .create-form .modal-input textarea{
+    border: 1px solid var(--secondary-color);
+    padding: 1rem;
+    outline: none;
+    color: var(--secondary-color);
+    border-radius: 10px;
+}
+.create-form .buttons {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
 }
 
 .container{

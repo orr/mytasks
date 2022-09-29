@@ -1,3 +1,43 @@
+let newTask ={};
+
+let categories = [{"id":1, "icon":"auto_stories", "bgcolor":"orange" ,"label":"Education"},
+{"id":2,"icon":"medication", "bgcolor":"purple", "label":"Physical"},
+{"id":3,"icon":"emoji_emotions", "bgcolor":"green", "label":"Emotional"},
+{"id":4,"icon":"question_answer", "bgcolor":"yellow", "label":"Social"}];
+
+
+let modalCreate = document.querySelector(".modal-create");
+
+document.querySelector("#btn-create-task").addEventListener('click', () => {
+    modalCreate.classList.toggle('closed');
+});
+
+let parentModal = document.querySelector(".task-selectors.main-container");
+categories.forEach( c => {
+    let templateModal = '<span class="material-icons">#icon#</span>'+
+        '<p>#label#</p>';
+    templateModal = templateModal.replace("#icon#", c.icon).replace("#label#",c.label);
+
+    let d = document.createElement('div');
+    d.setAttribute("id", "modal-create-category-"+c.id);
+    d.setAttribute("class", "selector");
+    d.innerHTML = templateModal;
+
+    d.addEventListener('click', () => {
+        parentModal.querySelectorAll(".selector").forEach(c => c.classList.remove('active'));
+        d.classList.toggle("active");
+        newTask.category = categories.filter(cat => cat.id == c.id)[0];
+    });
+
+    parentModal.appendChild(d);
+        
+}) ;
+
+document.querySelector("#modal-cancel").addEventListener('click', () => {
+   // modalCreate.classList.add("closed");
+   // document.querySelector(".create-form").classList.add("closed");
+});
+
 function createTask(task) {
 
     let template = '<div class="category #bgcolor#"><span class="material-icons">#icon#</span></div><div class="title">'+
