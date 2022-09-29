@@ -390,6 +390,49 @@ select {
     row-gap: .5rem;
     column-gap: 1rem;
     margin-bottom: 1rem;
+    position: relative;
+    transition: all ease 500ms;
+}
+.task .options {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    gap: 2px;
+    cursor: pointer;
+}
+.task .options .point {
+    width: 3px;
+    height: 3px;
+    background-color: #8AA9E6;
+    border-radius: 50%;
+}
+.task .menu-parent {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+}
+.task .options-menu {
+    position: absolute;
+    top: -10px;
+    right: 25px;
+    /*transform: translateX(-100%);*/
+    background-color: #fff;
+    box-shadow: 0px 0px 12px -7px rgba(0,0,0,0.75);
+    padding: 1rem 3rem;
+    border-radius: 5px;
+}
+.closed {
+    display: none;
+}
+.task .options-menu p {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
 }
 .task .category {
     grid-column: 1 / 2;
@@ -475,11 +518,14 @@ select {
     grid-row: 1;
     display: flex;
     height: 30px;
+    transform: translateX(-15px);
 }
 .task .members-img img{ 
     border-radius: 50%;
     position: relative;
+    width: 30px;
+    height: 30px;
 }
 .task .members-img img:not(:nth-child(1)){ 
-    margin-left: -20px;
+    margin-left: -15px;
 }
