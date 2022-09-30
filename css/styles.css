@@ -29,10 +29,12 @@ body {
     font-family: var(--font-family);
     background-color: #EDEEF8;
     color: var(--primary-color);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 
-.modal-create {
+.m-create {
     position: fixed;
     top: 0;
     left: 0;
@@ -51,13 +53,13 @@ body {
     border-radius: 20px;
     padding: 2rem;
 }
-.create-form .modal-input {
+.create-form .m-input {
     margin-top: 1rem;
     display: flex;
     flex-direction: column;
     color: var(--secondary-color);
 }
-.create-form .modal-input input , .create-form .modal-input textarea{
+.create-form .m-input input , .create-form .m-input textarea{
     border: 1px solid var(--secondary-color);
     padding: 1rem;
     outline: none;
@@ -358,7 +360,7 @@ select {
     justify-content: center;
     gap: .5rem;
     padding: 1rem;
-    background-image: linear-gradient(0deg, #ffffff 65%, var(--primary-bg) 65%);
+    background-image: linear-gradient(0deg, #ffffff 55%, #EDEEF8 55%);
     box-shadow: 0px 0px 12px -7px rgba(0,0,0,0.75);
     border-radius: 5px;
     color: var(--secondary-color);
@@ -568,3 +570,13 @@ select {
 .task .members-img img:not(:nth-child(1)){ 
     margin-left: -15px;
 }
+
+@media (max-width: 992px) {
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 576px) {
+}
+

@@ -6,10 +6,11 @@ let categories = [{"id":1, "icon":"auto_stories", "bgcolor":"orange" ,"label":"E
 {"id":4,"icon":"question_answer", "bgcolor":"yellow", "label":"Social"}];
 
 
-let modalCreate = document.querySelector(".modal-create");
+let modalCreate = document.querySelector(".m-create");
 
 document.querySelector("#btn-create-task").addEventListener('click', () => {
     modalCreate.classList.toggle('closed');
+    document.querySelector(".create-form").classList.toggle("closed");
 });
 
 let parentModal = document.querySelector(".task-selectors.main-container");
@@ -19,7 +20,7 @@ categories.forEach( c => {
     templateModal = templateModal.replace("#icon#", c.icon).replace("#label#",c.label);
 
     let d = document.createElement('div');
-    d.setAttribute("id", "modal-create-category-"+c.id);
+    d.setAttribute("id", "m-create-category-"+c.id);
     d.setAttribute("class", "selector");
     d.innerHTML = templateModal;
 
@@ -33,10 +34,26 @@ categories.forEach( c => {
         
 }) ;
 
-document.querySelector("#modal-cancel").addEventListener('click', () => {
-   // modalCreate.classList.add("closed");
-   // document.querySelector(".create-form").classList.add("closed");
+document.querySelector("#m-cancel").addEventListener('click', () => {
+    modalCreate.classList.add("closed");
+    document.querySelector(".create-form").classList.add("closed");
 });
+
+document.querySelector("#m-add").addEventListener('click', () => {
+    newTask.title = document.querySelector("#title").value;
+    newTask.desc = document.querySelector("#desc").value;
+
+    modalCreate.classList.add("closed");
+    document.querySelector(".create-form").classList.add("closed");
+    
+    newTask.members = ['https://source.unsplash.com/320x180/?cartoon','https://source.unsplash.com/320x180/?emily','https://source.unsplash.com/320x180/?will'];
+
+    tasks.push(newTask);
+
+    createTask(newTask);
+
+});
+
 
 function createTask(task) {
 
@@ -50,9 +67,9 @@ function createTask(task) {
     '<p><span class="material-symbols-outlined">edit</span>Edit</p>'+
     '</div>';
 
-    template = template.replace('#icon#', task.icon).replace('#title#', task.title).replace('#category#', task.category).replace('#desc#', task.desc);;
+    template = template.replace('#icon#', task.category.icon).replace('#title#', task.title).replace('#category#', task.category.label).replace('#desc#', task.desc);
 
-    template = template.replace('#members#', task.members.length).replaceAll('#bgcolor#',task.bgcolor).replaceAll('#id#',task.id)
+    template = template.replace('#members#', task.members.length).replaceAll('#bgcolor#',task.category.bgcolor).replaceAll('#id#',task.id)
 
     let imgs ="";
     task.members.forEach(x => {
@@ -68,7 +85,7 @@ function createTask(task) {
 
 
     let container = document.querySelector(".tasks");
-    container.appendChild(div);
+    container.prepend(div);
 
     let parent = document.querySelector('#menu-parent-'+task.id);
 
@@ -97,10 +114,10 @@ function createTask(task) {
 }
 
 let tasks = [
-    {"id":1,"icon":"auto_stories", "bgcolor":"orange", "title":"Do my home work", "category":"Education","desc":"Do all the home work by noon","members":['https://source.unsplash.com/320x180/?profile','https://source.unsplash.com/320x180/?avagar','https://source.unsplash.com/320x180/?alice']},
-    {"id":2,"icon":"medication", "bgcolor":"purple", "title":"Run 3 miles", "category":"Physical","desc":"Run 3 miles every day","members":['https://source.unsplash.com/320x180/?face','https://source.unsplash.com/320x180/?woman','https://source.unsplash.com/320x180/?mike']},
-    {"id":3,"icon":"emoji_emotions", "bgcolor":"green", "title":"Run 3 miles", "category":"Emotional","desc":"Run 3 miles every day","members":['https://source.unsplash.com/320x180/?worker','https://source.unsplash.com/320x180/?heart']},
-    {"id":4,"icon":"question_answer", "bgcolor":"yellow", "title":"Run 3 miles", "category":"Social","desc":"Run 3 miles every day","members":['https://source.unsplash.com/320x180/?cartoon','https://source.unsplash.com/320x180/?emily','https://source.unsplash.com/320x180/?will']},
+    {"id":1, "category":categories[0],"title":"Home work", "desc":"Do all the home work by noon","members":['https://source.unsplash.com/320x180/?profile','https://source.unsplash.com/320x180/?avagar','https://source.unsplash.com/320x180/?alice']},
+    {"id":2,"category":categories[1],"title":"Run 3 miles", "desc":"Run 3 miles every day","members":['https://source.unsplash.com/320x180/?face','https://source.unsplash.com/320x180/?woman','https://source.unsplash.com/320x180/?mike']},
+    {"id":3,"category":categories[2],"title":"Lunch","desc":"Run 3 miles every day","members":['https://source.unsplash.com/320x180/?worker','https://source.unsplash.com/320x180/?heart']},
+    {"id":4,"category":categories[3], "title":"Go to work", "desc":"Run 3 miles every day","members":['https://source.unsplash.com/320x180/?cartoon','https://source.unsplash.com/320x180/?emily','https://source.unsplash.com/320x180/?will']},
 ]
 
 tasks.forEach(createTask);
